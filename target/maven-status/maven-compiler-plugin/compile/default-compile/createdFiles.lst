@@ -1,0 +1,8 @@
+me\sadensmol\flights\services\ticket\TicketService.class
+me\sadensmol\flights\model\Destination.class
+me\sadensmol\flights\model\Baggage.class
+me\sadensmol\flights\model\Ticket.class
+me\sadensmol\flights\Launcher.class
+me\sadensmol\flights\model\AppModel.class
+me\sadensmol\flights\model\Coupon.class
+me\sadensmol\flights\web\RestVerticle.class
