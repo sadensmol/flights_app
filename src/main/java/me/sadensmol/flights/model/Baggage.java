@@ -5,7 +5,6 @@ public class Baggage {
 
     public Baggage(int id) {
         this.id = id;
-
     }
 
     public int getId() {

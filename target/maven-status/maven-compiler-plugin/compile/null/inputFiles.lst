@@ -1,6 +1,7 @@
 D:\projects\sadensmol\flights_app\src\main\java\me\sadensmol\flights\model\Destination.java
 D:\projects\sadensmol\flights_app\src\main\java\me\sadensmol\flights\services\ticket\BaggageService.java
 D:\projects\sadensmol\flights_app\src\main\java\me\sadensmol\flights\web\RestVerticle.java
+D:\projects\sadensmol\flights_app\src\main\java\me\sadensmol\flights\model\cache\Cache.java
 D:\projects\sadensmol\flights_app\src\main\java\me\sadensmol\flights\model\Ticket.java
 D:\projects\sadensmol\flights_app\src\main\java\me\sadensmol\flights\model\Baggage.java
 D:\projects\sadensmol\flights_app\src\main\java\me\sadensmol\flights\Launcher.java

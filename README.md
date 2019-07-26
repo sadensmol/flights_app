@@ -14,3 +14,5 @@ http://localhost:8080/baggage11/dest12
 
 3 coupon booking for id = 11 and money = 3000
 http://localhost:8080/coupon11/price3000
+
+cache has been implemented in the fastest way but only for tickets.

@@ -1,4 +1,7 @@
 me\sadensmol\flights\services\ticket\BaggageService.class
+me\sadensmol\flights\model\cache\Cache.class
 me\sadensmol\flights\services\ticket\CouponsService.class
+me\sadensmol\flights\model\cache\Cache$CacheObject.class
+me\sadensmol\flights\model\cache\Cache$1.class
 me\sadensmol\flights\services\ticket\TicketsService.class
 me\sadensmol\flights\model\BaggageToDest.class

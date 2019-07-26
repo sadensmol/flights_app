@@ -5,6 +5,7 @@ package me.sadensmol.flights.model;
 
 import io.vertx.core.logging.Logger;
 import io.vertx.core.logging.LoggerFactory;
+import me.sadensmol.flights.model.cache.Cache;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -13,6 +14,8 @@ import java.util.Optional;
 public class AppModel {
 
     private static AppModel instance;
+
+    private Cache cache = new Cache();
 
     private List<Ticket> tickets;
     private List<Coupon> coupons;
@@ -41,6 +44,12 @@ public class AppModel {
         tickets.add(new Ticket(12));
         tickets.add(new Ticket(22));
 
+        //put lots of ticket for cache testing
+
+        for (int i = 100; i< 1000000; i++) {
+            tickets.add(new Ticket(i));
+        }
+
         coupons = new ArrayList<>();
         coupons.add(new Coupon(10, 666));
         coupons.add(new Coupon(11,2000));
@@ -57,9 +66,21 @@ public class AppModel {
     // but they should be injected into the related services (via some Data Access layer -DAO etc...)
     // rework to good way of working with model
 
+    //fixme - add functionality for auto caching with load check and maybe per object expiration time (to not cache rare requests)
     public Optional<Ticket> findTicketById(int ticketId) {
+        //check if cache first
+        Object obj =  cache.get("ticket" + ticketId);
+
+        if (obj!= null)
+            return (Optional<Ticket>) obj;
+
         logger.debug("Searching ticket by id " + ticketId);
-        return tickets.stream().filter(ticket -> ticket.getId() == ticketId).findFirst();
+        Optional<Ticket> foundTicket = tickets.stream().filter(it -> it.getId() == ticketId).findFirst();
+
+        //put into the cache
+        cache.add("ticket"+ticketId, foundTicket);
+
+        return  foundTicket;
     }
 
     public Optional<BaggageToDest> findBaggageByIdAndDest(int baggageId, int destId) {
