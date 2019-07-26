@@ -16,4 +16,9 @@ public class Coupon {
     public double getPrice() {
         return price;
     }
+
+    @Override
+    public String toString() {
+        return "Coupon " + id + ", price : " + price;
+    }
 }

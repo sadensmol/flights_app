@@ -1,8 +1,11 @@
 D:\projects\sadensmol\flights_app\src\main\java\me\sadensmol\flights\model\Destination.java
+D:\projects\sadensmol\flights_app\src\main\java\me\sadensmol\flights\services\ticket\BaggageService.java
 D:\projects\sadensmol\flights_app\src\main\java\me\sadensmol\flights\web\RestVerticle.java
 D:\projects\sadensmol\flights_app\src\main\java\me\sadensmol\flights\model\Ticket.java
 D:\projects\sadensmol\flights_app\src\main\java\me\sadensmol\flights\model\Baggage.java
 D:\projects\sadensmol\flights_app\src\main\java\me\sadensmol\flights\Launcher.java
-D:\projects\sadensmol\flights_app\src\main\java\me\sadensmol\flights\services\ticket\TicketService.java
+D:\projects\sadensmol\flights_app\src\main\java\me\sadensmol\flights\services\ticket\TicketsService.java
 D:\projects\sadensmol\flights_app\src\main\java\me\sadensmol\flights\model\Coupon.java
+D:\projects\sadensmol\flights_app\src\main\java\me\sadensmol\flights\model\BaggageToDest.java
 D:\projects\sadensmol\flights_app\src\main\java\me\sadensmol\flights\model\AppModel.java
+D:\projects\sadensmol\flights_app\src\main\java\me\sadensmol\flights\services\ticket\CouponsService.java

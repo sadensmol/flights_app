@@ -5,9 +5,7 @@ package me.sadensmol.flights.model;
 
 import io.vertx.core.logging.Logger;
 import io.vertx.core.logging.LoggerFactory;
-import me.sadensmol.flights.services.ticket.TicketService;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
@@ -66,5 +64,9 @@ public class AppModel {
 
     public Optional<BaggageToDest> findBaggageByIdAndDest(int baggageId, int destId) {
         return baggageToDests.stream().filter(btd -> btd.getDest().getId() == destId && btd.getBaggage().getId() == baggageId).findFirst();
+    }
+
+    public Optional<Coupon> findCouponById(int couponId) {
+        return coupons.stream().filter(coupon -> coupon.getId() == couponId).findFirst();
     }
 }

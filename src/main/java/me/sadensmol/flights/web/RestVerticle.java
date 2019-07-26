@@ -9,15 +9,18 @@ import io.vertx.core.logging.LoggerFactory;
 import io.vertx.ext.web.Router;
 import io.vertx.ext.web.RoutingContext;
 import me.sadensmol.flights.services.ticket.BaggageService;
-import me.sadensmol.flights.services.ticket.TicketService;
+import me.sadensmol.flights.services.ticket.CouponsService;
+import me.sadensmol.flights.services.ticket.TicketsService;
 
 // simple implementation of REST
 // todo rework it to different verticles - verticle per service
 // this will improve total bandwidth/load
+// add event bus for interaction between the services
 public class RestVerticle extends AbstractVerticle {
     //rework with Vert.x service
-    private TicketService ticketService = new TicketService();
+    private TicketsService ticketService = new TicketsService();
     private BaggageService baggageService = new BaggageService();
+    private CouponsService couponsServiceService = new CouponsService();
 
     private static final Logger logger = LoggerFactory.getLogger(RestVerticle.class);
 
@@ -29,6 +32,7 @@ public class RestVerticle extends AbstractVerticle {
         Router router = Router.router(vertx);
         router.get("/ticket:id").handler(this::ticketHandler);
         router.get("/baggage:id/dest:destId").handler(this::baggageHandler);
+        router.get("/coupon:id/price:price").handler(this::couponHandler);
         int portNumber = config().getInteger(CONFIG_HTTP_SERVER_PORT, 8080);
         server
                 .requestHandler(router)
@@ -85,6 +89,32 @@ public class RestVerticle extends AbstractVerticle {
         result = baggageService.book(baggageId, destId);
 
         response.end(result?"1":"0");
+    }
+
+    private void couponHandler(RoutingContext context) {
+
+        int couponId = 0;
+        double price = 0;
+
+        boolean result = false;
+
+        try {
+            couponId = Integer.parseInt(context.request().getParam("id"));
+        }catch (NumberFormatException exception) {
+            logger.error("Wrong coupon id format ");
+        }
+
+        try {
+            price = Double.parseDouble(context.request().getParam("price"));
+        }catch (NumberFormatException exception) {
+            logger.error("Wrong price id format");
+        }
+
+
+        HttpServerResponse response = context.response().putHeader("content-type", "text/plain");
+        result = couponsServiceService.book(couponId, price);
+
+        response.end(result ? "1":"0 the price is : " + price);
     }
 
 }

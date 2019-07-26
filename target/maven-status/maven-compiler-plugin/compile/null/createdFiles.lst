@@ -1,2 +1,4 @@
 me\sadensmol\flights\services\ticket\BaggageService.class
+me\sadensmol\flights\services\ticket\CouponsService.class
+me\sadensmol\flights\services\ticket\TicketsService.class
 me\sadensmol\flights\model\BaggageToDest.class

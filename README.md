@@ -8,3 +8,9 @@ Sevices:
 
 1 ticket check for id = 12
 http://localhost:8080/ticket12 
+
+2 baggage check for baggage id = 12 and dest id = 12
+http://localhost:8080/baggage11/dest12
+
+3 coupon booking for id = 11 and money = 3000
+http://localhost:8080/coupon11/price3000
